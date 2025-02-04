@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerMover : MonoBehaviour
 {
+    public bool canMove = true;
 
     public Vector3 externalMoveSpeed;
 

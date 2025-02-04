@@ -39,9 +39,15 @@ public class GameManager : MonoBehaviour
         Coins++;
     }
 
-    public interface ICollectable
-    {
-        public void OnCollected();
-    }
+   
+    
+ 
+
+
+   
 }
 
+public interface ICollectable
+        {
+            public void OnCollected();
+        }
