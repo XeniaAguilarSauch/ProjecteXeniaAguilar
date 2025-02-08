@@ -55,7 +55,14 @@ public class PlayerMover : MonoBehaviour
         //Vector3 cameraForward = Vector3.Scale(_cameraTransform.forward, new Vector3(1, 0, 1)).normalized;
         //Vector3 moveDirection = _vertical * cameraForward + _horizontal * _cameraTransform.right;
         Vector3 moveDirection = _vertical * _cameraTransform.forward + _horizontal * _cameraTransform.right;
-        _moveDirection.x = moveDirection.x * _moveSpeed; _moveDirection.z = moveDirection.z * _moveSpeed;
+       
+       if (canMove)
+       {
+         _moveDirection.x = moveDirection.x * _moveSpeed;
+         _moveDirection.z = moveDirection.z * _moveSpeed;
+       }
+       
+
 
         if (_controller.isGrounded)
         {
@@ -104,11 +111,16 @@ public class PlayerMover : MonoBehaviour
     }
     private void Update()
     {
-        if (_jumpingTime > 0) _jumpingTime -= Time.deltaTime;
+        if(canMove)
+        {
+             if (_jumpingTime > 0) _jumpingTime -= Time.deltaTime;
         //if (Input.GetKeyDown(KeyCode.Space) && !jumping) jump();
         if (Input.GetKeyDown(KeyCode.Space) && _animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Jump") jump();
         foreach (Touch t in Input.touches) if (t.tapCount == 2 && _animator.GetCurrentAnimatorClipInfo(0)[0].clip.name != "Jump") jump();
        //CheckPlayerTouch();
+
+        }
+       
     }
 
     private void LateUpdate()
