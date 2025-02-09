@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoinSaver : MonoBehaviour
+public class OrbSaver : MonoBehaviour
 {
     public int ID;
 
     private void Awake()
     {
-        if (PlayerPrefs.HasKey ("Coin" + ID) && PlayerPrefs.GetInt ("Coin" + ID) == 1)
+        if (PlayerPrefs.HasKey ("Orb" + ID) && PlayerPrefs.GetInt ("Orb" + ID) == 1)
         {
-            LoadCoin();
+            LoadOrb();
 
         }
          
@@ -18,10 +18,10 @@ public class CoinSaver : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        PlayerPrefs.SetInt("Coin" + ID, 1);
+        PlayerPrefs.SetInt("Orb" + ID, 1);
     }
 
-    public void LoadCoin()
+    public void LoadOrb()
     {
         GameManager.gameManager.CoinCollected(1);
         gameObject.SetActive(false);
