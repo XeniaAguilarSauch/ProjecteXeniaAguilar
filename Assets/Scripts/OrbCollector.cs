@@ -23,7 +23,10 @@ public class OrbCollector : MonoBehaviour
             _animator.SetTrigger("Collected");
             _animator.SetLayerWeight(1, 1);
             Camera.main.GetComponent<CinemachineBrain>().enabled = true;
-            GetComponent<PlayerMover>().canMove = false;
+            var _playerMover = GetComponent<PlayerMover>();
+            _playerMover.canMove = false;
+            _playerMover._moveDirection = Vector3.zero;
+
 
             }
            

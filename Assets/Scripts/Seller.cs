@@ -12,6 +12,8 @@ public class Seller : MonoBehaviour
      private bool _canBuy = true;
      
      private float time = 1f;
+
+     public GameObject HUD;
      private void OnTriggerEnter(Collider other)
      {
         if(_canBuy)
@@ -22,7 +24,9 @@ public class Seller : MonoBehaviour
             Camera.main.cullingMask &= ~(1 << 8);
             _playerMover = other.GetComponent<PlayerMover>();
             _playerMover.canMove = false;
+            _playerMover._moveDirection = Vector3.zero;
             UI.SetActive(true);
+           
             _canBuy = false;
         }
      }
@@ -39,6 +43,7 @@ public class Seller : MonoBehaviour
             VCamEnable.gameObject.SetActive(false);
             Camera.main.GetComponent<CinemachineBrain>().enabled = false;
             Camera.main.cullingMask |= (1 << 8);
+             
             UI.SetActive(false);
 
         }

@@ -20,7 +20,7 @@ public class VictoryFinished : StateMachineBehaviour
     // OnStateExit is called before OnStateExit is called on any state inside this state machine
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       animator.gameObject.transform.parent.gameObject.GetComponent<PlayerMover>().canMove = true;
+       animator.gameObject.GetComponentInChildren<PlayerMover>().canMove = true;
        Camera.main.GetComponent<CinemachineBrain>().enabled = false; 
     }
 

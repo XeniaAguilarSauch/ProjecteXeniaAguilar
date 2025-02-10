@@ -20,7 +20,7 @@ public class PlayerMover : MonoBehaviour
     private float _currentFallSpeed = 0f;
 
     private CharacterController _controller;
-    [SerializeField] private Vector3 _moveDirection = Vector3.zero;
+    [SerializeField] public Vector3 _moveDirection = Vector3.zero;
     public float _vertical;
     public float _horizontal;
 
