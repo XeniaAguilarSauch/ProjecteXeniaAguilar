@@ -26,7 +26,7 @@ public class NPC : MonoBehaviour
             _playerMover.canMove = false;
             _playerMover._moveDirection = Vector3.zero;
             UI.SetActive(true);
-           HUD.SetActive(true);
+           HUD.SetActive(false);
             _canBuy = false;
         }
      }
@@ -43,7 +43,7 @@ public class NPC : MonoBehaviour
             VCamEnable.gameObject.SetActive(false);
             Camera.main.GetComponent<CinemachineBrain>().enabled = false;
             Camera.main.cullingMask |= (1 << 8);
-             HUD.SetActive(false);
+             HUD.SetActive(true);
             UI.SetActive(false);
 
         }
