@@ -24,6 +24,11 @@ public class ExcelReader : MonoBehaviour
             ReadCSV(text.text);
             answerText.text = "";
         }
+
+        if(exitButton != null)
+        {
+            exitButton.onClick.AddListener(HideUIPanel);
+        }
     }
     private void ReadCSV(string csv)
     {
@@ -46,5 +51,12 @@ public class ExcelReader : MonoBehaviour
     public void AnswerTheQuestion(int i)
     {
         answerText.text = Answers[i];
+    }
+    public void HideUIPanel()
+    {
+        if(uiPanel != null)
+        {
+            uiPanel.SetActive(false);
+        }
     }
 }
