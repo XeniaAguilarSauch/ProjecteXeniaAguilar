@@ -9,6 +9,12 @@ public class ExcelReader : MonoBehaviour
     public List<string> Answers, Questions;
     public Button questionButton;
     public TextMeshProUGUI answerText;
+
+    public Button exitButton;
+
+    public GameObject uiPanel;
+
+    
     
     void Start()
     {
