@@ -45,7 +45,7 @@ public class ExcelReader : MonoBehaviour
                 AnswerTheQuestion(currentIndex);
             } );*/
             Answers.Add(cells[1]);
-        }
+        }1
         questionButton.gameObject.SetActive(false);
     }
     public void AnswerTheQuestion(int i)
@@ -57,6 +57,11 @@ public class ExcelReader : MonoBehaviour
         if(uiPanel != null)
         {
             uiPanel.SetActive(false);
+            
         }
+         if (playerController != null)
+    {
+        playerController.SetActive(true); 
     }
+}
 }
